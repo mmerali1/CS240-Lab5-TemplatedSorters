@@ -1,0 +1,27 @@
+
+# Here's the flag for C++11 support and a flag asking to be warned about
+# everything. 
+FLAGS = -Wall -std=c++11
+
+all: Lab5 Tmain
+
+Lab5: Lab5.o Sorter.o
+	g++ $(FLAGS) Lab5.o Sorter.o -o Lab5
+
+Tmain: Tmain.o TSorter.o
+	g++ $(FLAGS) Tmain.o TSorter.0 -o Lab5
+
+Sorter.o: Sorter.cpp Sorter.h
+	g++ $(FLAGS) -c Sorter.cpp -o Sorter.o
+
+Lab5.o: Lab5.cpp Sorter.h
+	g++ $(FLAGS) -c Lab5.cpp -o Lab5.o
+
+TSorter.o: TSorter.cpp TSorter.h
+	g++ $(FLAGS) -c TSorter.cpp -o TSorter.o
+
+Tmain.o: Tmain.cpp TSorter.h
+	g++ $(FLAGS) -c Tmain.cpp -o Tmain.h
+clean:
+	rm -f *.o Lab5
+
